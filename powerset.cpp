@@ -10,6 +10,7 @@ void powerr(string s,vector<string> &v,int index=0,string curr =""){
     }
     powerr(s,v,index+1,curr);
     powerr(s,v,index+1,curr+s[index]);
+    
 }
 vector<string> powerset(string &s){
 vector<string> an ; powerr(s,an);

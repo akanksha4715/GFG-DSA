@@ -41,8 +41,8 @@ switch(a[2]){
     case 9:str3="wxyz";break;
     default:str3="";
 }
-string s=""+str1[0]+str2[0]+str3[0];
-cout<<s;
+
+
 for (int i = 0; i < n; i++){
     for (int j = 0; j < n; j++)
     { 
