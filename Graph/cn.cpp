@@ -40,11 +40,11 @@ int main(){
     for(int p=0;p<t;p++){
     int k;
     vector<vector<bool> > visited; 
-    int maxim=0;
+    
     int num;
     int n;
     cin>>n;
-for (int i = 0; i < n; i++) { 
+    for (int i = 0; i < n; i++) { 
         vector<bool> v2; 
         for (int j = 0; j < n; j++) { 
             
@@ -52,7 +52,7 @@ for (int i = 0; i < n; i++) {
         } 
         visited.push_back(v2); 
     }
-vector<vector<int> > mat; 
+    vector<vector<int> > mat; 
     for (int i = 0; i < n; i++) { 
         vector<int> v1; 
         for (int j = 0; j < n; j++) { 
@@ -63,14 +63,18 @@ vector<vector<int> > mat;
     }
     cin>>k;
 for(int i=0;i<n;i++){
-    for(int j=0;j<n;j++){
-        if(mat[i][j] && !visited[i][j]){
-           count= bfs_count(mat,visited,i,j);
-           maxim=max(maxim,count);
-           }
+        for(int j=0;j<n;j++){
+            if(mat[i][j] && !visited[i][j]){
+                count= bfs_count(mat,visited,i,j);
+                if(count==k){
+                    cout<<i<<" "<<j<<"\n";
+                    break;
+                }
+                }   
         }   
-    }   
-    cout<<maxim;
+        if(count==k)
+        break; 
+}
 }
 return 0;
 }
