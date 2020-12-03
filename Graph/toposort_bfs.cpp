@@ -5,7 +5,7 @@
 #include<algorithm>
 using namespace std;
 void bfs(vector<int> adj[], bool visited[], int indegree[],  int v){
-   cout<<"\n";
+   int count=0;
     queue<int> q;
     for(int i=0;i<v;i++)
         if(indegree[i]==0){
@@ -15,7 +15,7 @@ void bfs(vector<int> adj[], bool visited[], int indegree[],  int v){
         while(q.empty()==false){
             int v=q.front();
             q.pop();
-            
+            count++;
             cout<<v<<" ";
             for(int u:adj[v]){
                 indegree[u]--;
@@ -25,6 +25,12 @@ void bfs(vector<int> adj[], bool visited[], int indegree[],  int v){
                 }
 
         }
+        }
+        if(count==v)
+        cout<<"Exists";
+        else
+        {
+            cout<<"no";
         }
         
 
