@@ -42,28 +42,28 @@ int main(){
     vector<vector<bool> > visited; 
     int maxim=0;
     int num;
-    int n;
-    cin>>n;
-for (int i = 0; i < n; i++) { 
+    int n1,n2;
+    cin>>n1>>n2;
+for (int i = 0; i < n1; i++) { 
         vector<bool> v2; 
-        for (int j = 0; j < n; j++) { 
+        for (int j = 0; j < n2; j++) { 
             
             v2.push_back(0);     
         } 
         visited.push_back(v2); 
     }
 vector<vector<int> > mat; 
-    for (int i = 0; i < n; i++) { 
+    for (int i = 0; i < n1; i++) { 
         vector<int> v1; 
-        for (int j = 0; j < n; j++) { 
+        for (int j = 0; j < n2; j++) { 
             cin>>num;
             v1.push_back(num);     
         } 
         mat.push_back(v1); 
     }
     cin>>k;
-for(int i=0;i<n;i++){
-    for(int j=0;j<n;j++){
+for(int i=0;i<n1;i++){
+    for(int j=0;j<n2;j++){
         if(mat[i][j] && !visited[i][j]){
            count= bfs_count(mat,visited,i,j);
            maxim=max(maxim,count);
