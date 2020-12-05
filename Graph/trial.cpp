@@ -1,55 +1,41 @@
-#include<bits/stdc++.h> 
+#include <bits/stdc++.h> 
 using namespace std; 
+#define V 4
 
-void DFS(vector<int> adj[], int u,stack<int> &st, bool visited[]) 
-{ 	
-    visited[u]=true;
-    
-    for(int v:adj[u]){
-        if(visited[v]==false)
-            DFS(adj,v,st,visited);
-    }
-    st.push(u);
-}
-
-
-void topologicalSort(vector<int> adj[], int V) 
+int primMST(int graph[V][V]) 
 { 
-    bool visited[V]; 
-	for(int i = 0;i<V; i++) 
-		visited[i] = false;
-	stack<int> st;
-    
-    for(int u=0;u<V;u++){
-        if(visited[u]==false){
-            DFS(adj,u,st,visited);
-        }
-    }
-    
-    while(st.empty()==false){
-        int u=st.top();
-        st.pop();
-        cout<<u<<" ";
-    }
-   
-}
 
-void addEdge(vector<int> adj[], int u, int v){
-    adj[u].push_back(v);
-}
+	int key[V];int res=0; 
+	fill(key,key+V,INT_MAX);
+	bool mSet[V]; key[0]=0;
+
+	for (int count = 0; count < V ; count++) 
+	{ 
+		int u = -1; 
+
+		for(int i=0;i<V;i++)
+		    if(!mSet[i]&&(u==-1||key[i]<key[u]))
+		        u=i;
+		mSet[u] = true; 
+		res+=key[u];
+
+		
+		for (int v = 0; v < V; v++) 
+
+			if (graph[u][v]!=0 && mSet[v] == false) 
+				key[v] = min(key[v],graph[u][v]); 
+	} 
+    return res;
+} 
 
 int main() 
 { 
-	int V=5;
-	vector<int> adj[V];
-	addEdge(adj,0, 1); 
-    addEdge(adj,1, 3); 
-    addEdge(adj,2, 3); 
-    addEdge(adj,3, 4); 
-    addEdge(adj,2, 4);  
-  
-    cout << "Following is a Topological Sort of\n"; 
-    topologicalSort(adj,V);
+	int graph[V][V] = { { 0, 5, 8, 0}, 
+						{ 5, 0, 10, 15 }, 
+						{ 8, 10, 0, 20 }, 
+						{ 0, 15, 20, 0 },}; 
+
+	cout<<primMST(graph); 
 
 	return 0; 
 } 
