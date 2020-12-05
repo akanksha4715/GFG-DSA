@@ -13,10 +13,6 @@ void dfs(vector<int> adj[], bool visited[],int src, stack<int> &st){
     }
     st.push(src);
 }
-
-
-
-
 int main(){
     int v, e;
     cin>>v>>e;

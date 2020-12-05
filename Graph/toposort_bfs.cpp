@@ -27,10 +27,10 @@ void bfs(vector<int> adj[], bool visited[], int indegree[],  int v){
         }
         }
         if(count==v)
-        cout<<"Exists";
+        cout<<"nah";
         else
         {
-            cout<<"no";
+            cout<<"han hai";
         }
         
 
