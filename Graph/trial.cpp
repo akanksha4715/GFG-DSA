@@ -1,41 +1,84 @@
-#include <bits/stdc++.h> 
-using namespace std; 
-#define V 4
+#include <iostream>
+#include <vector>
 
-int primMST(int graph[V][V]) 
-{ 
+using namespace std;
 
-	int key[V];int res=0; 
-	fill(key,key+V,INT_MAX);
-	bool mSet[V]; key[0]=0;
+struct edge
+{
+    int u;
+    int v;
+    int w;
 
-	for (int count = 0; count < V ; count++) 
-	{ 
-		int u = -1; 
+    edge(int x, int y, int z)
+    {
+        u = x;
+        v = y;
+        w = z;
+    }
+};
 
-		for(int i=0;i<V;i++)
-		    if(!mSet[i]&&(u==-1||key[i]<key[u]))
-		        u=i;
-		mSet[u] = true; 
-		res+=key[u];
+vector<int> BellmanFord(vector<edge *> edges, int v, int s, bool &isncycle)
+{
+    vector<int> dist(v, INT16_MAX);
+    dist[s] = 0;
+    for (int i = 0; i < v; i++)
+    {
+        for (auto e : edges)
+        {
+            if (dist[e->v] > dist[e->u] + e->w)
+                dist[e->v] = dist[e->u] + e->w;
+        }
+    }
+    for (auto e : edges)
+        if (dist[e->v] > dist[e->u] + e->w)
+            isncycle = true;
 
-		
-		for (int v = 0; v < V; v++) 
+    return dist;
+}
 
-			if (graph[u][v]!=0 && mSet[v] == false) 
-				key[v] = min(key[v],graph[u][v]); 
-	} 
-    return res;
-} 
+int main()
+{
+    int v, e, s;
+    cout << "Enter the no. of vertices and edges";
+    cin >> v >> e;
 
-int main() 
-{ 
-	int graph[V][V] = { { 0, 5, 8, 0}, 
-						{ 5, 0, 10, 15 }, 
-						{ 8, 10, 0, 20 }, 
-						{ 0, 15, 20, 0 },}; 
+    vector<edge *> edges(e, NULL);
 
-	cout<<primMST(graph); 
+    cout << "Enter the edges";
 
-	return 0; 
-} 
+    for (int i = 0; i < e; i++)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+        edges[i] = new edge(x, y, z);
+    }
+    cout << "Enter the source";
+    cin >> s;
+    bool isncycle = false;
+    vector<int> dist = BellmanFord(edges, v, s, isncycle);
+    if (isncycle)
+    {
+        cout << "Negetive cycle is present!";
+    }
+    else
+    {
+        for (int i = 0; i < dist.size(); i++)
+        {
+            cout << s << " to " << i << " dist= " << dist[i] << endl;
+        }
+    }
+    return 0;
+}
+
+/*
+
+4 5
+
+0 1 1
+0 2 4
+1 2 -3
+1 3 2
+2 3 3
+
+0
+*/
