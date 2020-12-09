@@ -1,5 +1,2 @@
-while(!s.empty()){
-    //     int x=s.top();
-    //     cout<<x<<" ";
-    //     s.pop();
-    // }
+int knightPos[] = { 1, 1 }; 
+    int targetPos[] = { 30, 30 }; 
