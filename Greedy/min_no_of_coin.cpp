@@ -15,7 +15,7 @@ int minCoins(int arr[],int n,int sum){
     return res;
 }
 int main(){
-    int coins[] =  {18,1, 10}; 
+    int coins[] =  {2,1, 10}; 
     int m = sizeof(coins)/sizeof(coins[0]); 
     int V = 11; 
     cout << "Minimum coins required is "
