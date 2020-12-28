@@ -5,6 +5,7 @@
 using namespace std;
 int getceilid(vector<int> tail,int r,int key){
     int l=0;
+    --r;
     while(l<r){
         int m=l+(r-l)/2;
         if(tail[m]>=key)
