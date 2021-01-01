@@ -22,13 +22,6 @@ int minStepToReachTarget(int src[],int dest[],int n){
     int row[] ={-2,-2,-1,1,2,2,1,-1};
     int col[]={-1,1,2,2,1,-1,-2,-2};
     queue<block> q;
-    //vector<vector<bool>> visited;
-    // for(int i=1;i<=n;i++){   
-    //     vector<bool> v1;
-    //     for(int j=1;j<=n;j++)
-    //     v1.push_back(0);
-    //     visited.push_back(v1);
-    // }
     bool visited[n + 1][n + 1]; 
     int minn=INT16_MAX;
 	// make all cell unvisited 
