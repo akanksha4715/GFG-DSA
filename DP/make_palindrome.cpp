@@ -14,7 +14,7 @@ bool palin(string s,int i,int j){
     return true;
 }
 int sol(string s,int i,int j){
-    int res=INT16_MAX;;
+    int res=INT16_MAX;
     if(palin(s,i,j))
          return 0;
     for (int k = i; k < j; k++)
