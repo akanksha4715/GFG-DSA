@@ -13,14 +13,11 @@ bool chk(string s){
         if(s[i]=='(' || s[i]=='{' || s[i]=='[')
         st.push(s[i]);
         else {
-            //cout<<st.top();
             if(st.empty())
             return false;
             if(match(st.top(),s[i]))
             {
-                //cout<<"ELSE";
                 st.pop();
-                //cout<<st.top();
             }
             else
             {
@@ -38,8 +35,6 @@ int main(){
     else
     {
         cout<<"Not Balanced";
-    }
-    
-    
+    } 
     return 0;
 }
