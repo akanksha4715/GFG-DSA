@@ -13,13 +13,13 @@ void prims(vector<vector<int> > graph, int v){
         
         for(int count=0;count<v;count++){
             u=-1;
-            for(i=0;i<v;i++){   
+            for(i=0;i<v;i++){       //find min value from key array
                 if(!visited[i] && (u==-1 || key[i]<key[u]))
                 u=i;
             }
             res=res+key[u];
             visited[u]=true;
-            for(int j=0;j<v;j++){
+            for(int j=0;j<v;j++){           //now updating ki key[u] se konsa min jara h
                 if(graph[u][j]!=0 && !visited[j])
                 {
                     key[j]=min(key[j],graph[u][j]);
