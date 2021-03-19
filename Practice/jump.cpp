@@ -12,6 +12,7 @@ bool fn(int n,vector<int> arr,int s){
             visited[s]=true;
             x= fn(n,arr,s-arr[s]);
         }
+        if(x==0)
         if(arr[s]<=n-s && !visited[s]){
             visited[s]=true;
              y= fn(n,arr,s-arr[s]);
