@@ -9,13 +9,14 @@ int subarray(int arr[],int target,int n){
         sum=sum+arr[i];
         if(sum==target)
         count++;
-        if(sett.find(target-sum)!=sett.end()){
+        if(sett.find(sum-target)!=sett.end()){
             count++;
         }
         sett.insert(sum);
         
     }
     return count;
+
 }
 int main(){
     int n,target;
