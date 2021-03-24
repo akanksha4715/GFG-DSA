@@ -1,4 +1,4 @@
-//Count no. of subarray wih given sum
+//Count presence of subarray wih given sum
 #include<iostream>
 #include<unordered_set>
 using namespace std;
@@ -8,14 +8,14 @@ int subarray(int arr[],int target,int n){
     for(int i=0;i<n;i++){
         sum=sum+arr[i];
         if(sum==target)
-        count++;
+        return 1;
         if(sett.find(sum-target)!=sett.end()){
-            count++;
+            return 1;
         }
         sett.insert(sum);
         
     }
-    return count;
+    return 0;
 
 }
 int main(){
