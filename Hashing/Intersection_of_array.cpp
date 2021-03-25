@@ -18,7 +18,7 @@ int inter(int a[],int b[],int n,int m){
 }
 int main(){
     int m,n;
-    cin>>m>>n;
+    cin>>n>>m;
     int a[n],b[m];
     for(int i=0;i<n;i++)
     cin>>a[i];
