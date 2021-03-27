@@ -21,8 +21,10 @@ int inter(int a[],int b[],int n,int m){
     }
     
     return sett.size();
+    
 }
 int main(){
+    
     int m,n;
     cin>>n>>m;
     int a[n],b[m];
