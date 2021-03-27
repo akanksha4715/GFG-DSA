@@ -3,15 +3,24 @@
 using namespace std;
 int inter(int a[],int b[],int n,int m){
     unordered_set<int> sett;
+    
     for(int i=0;i<n;i++)
-    sett.insert(a[i]);
+    {
+        sett.insert(a[i]);
+        
+    }
+    // for(int x:sett)
+    // cout<<x;
     for(int i=0;i<m;i++)
     {
         if(sett.find(b[i])==sett.end())
-        {sett.insert(b[i]);
-        n++;}
+        {
+            sett.insert(b[i]);
+            
+        }
     }
-    return n;
+    
+    return sett.size();
 }
 int main(){
     int m,n;
