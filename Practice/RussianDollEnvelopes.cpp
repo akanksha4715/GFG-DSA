@@ -2,27 +2,27 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
+bool mycmp(pair<int,int> a,pair<int,int> b){
+    if(a.first<b.first)
+    return true;
+    else if(a.first==b.first)
+    return a.second<b.second;
+    return false;
+}
 int maxEnvelopes(vector<vector<int>>& envelopes) {
         int n=envelopes.size();
-        vector<pair<int,int>> pr;
-        for(int i=0;i<n;i++){
-            pr.push_back(make_pair(envelopes[i][0],envelopes[i][1]) );
-        }
-        sort(pr.begin(),pr.end());
-        int i=0,j=1,count=1;
-        while(j<n){
-            if(pr[i].first<pr[j].first && pr[i].second<pr[j].second){
-                count++;
-                i++;
-                j++;
+        sort(envelopes.begin(),envelopes.end());
+        int count=1;
+        int arr[n];
+        arr[0]=1;
+        for(int i=1;i<n;i++){
+            arr[i]=1;
+            for(int j=0;j<i;j++){
+                if(envelopes[j][0]<envelopes[i][0] && envelopes[j][1]<envelopes[i][1]){
+                    arr[i]=max(arr[i],arr[j]+1);
+                }
             }
-            if(pr[i].first==pr[j].first && pr[i].second==pr[j].second){
-                i++;
-                j++;
-            }
-            else{
-                j++;
-            }
+            count=max(arr[i],count);
         }
         return count;
     }
@@ -39,5 +39,8 @@ int main(){
         }
         vec.push_back(v);
     }
+    
+    
+    cout<<endl;
     cout<<maxEnvelopes(vec);
 }
