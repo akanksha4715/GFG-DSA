@@ -18,10 +18,8 @@ sort(an.begin(),an.end());
 return an;
 }
 int main(){
-    string s;
-    cin>>s;
-    vector<string> ans = powerset(s);
-    for(auto x:ans){
-        cout<<x<<" ";
-    }
+    short b=32767;
+    b=b+1;
+    cout<<b;
+
 }
