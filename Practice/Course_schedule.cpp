@@ -7,8 +7,8 @@ bool isSafe(){
 bool dfs(bool visited[],bool recst[],vector<vector<int>>& prerequisites,int src){
     visited[src]=1;
     recst[src]=1;
-    for(int i=0;i<prerequisites.size();i++){
-        int u=prerequisites[i][1];
+    //for(int i=0;i<prerequisites.size();i++){
+        int u=prerequisites[src][1];
         if(!visited[u]){
             visited[u]=1;
             recst[u]=1;
@@ -17,7 +17,7 @@ bool dfs(bool visited[],bool recst[],vector<vector<int>>& prerequisites,int src)
         }
         else if(recst[u])
         return true;
-    }
+    //}
     recst[src]=0;
     return false;
 }
