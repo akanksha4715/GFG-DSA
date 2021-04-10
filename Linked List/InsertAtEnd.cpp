@@ -25,7 +25,6 @@ void print(node *head){
        cout<<ptr->data<<" ";
        ptr=ptr->next;
     }while (ptr!=NULL);
-   // cout<<ptr->data<<" ";
 }
 int main(){
     int n,x;
