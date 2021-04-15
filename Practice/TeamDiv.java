@@ -17,12 +17,10 @@ public class TeamDiv {
 		}
         sumhal=sum/2.0f;
         minhal=minn/2.0f;
-        float x =sumhal-minhal;
-        System.out.println(sumhal+minhal+" "+minn);
-        ans1=(int) (sumhal+minhal);
-        
+        float x =sumhal-minhal;//System.out.println(sumhal+minhal+" "+minn);
+        ans1=(int) (sumhal+minhal);   
         ans2= (int) (x);
-        System.out.println(ans1+" "+ans2);
+        System.out.println(ans2+" "+ans1);
 	}
     //87,100,28,67,68,41,67,1
 }
