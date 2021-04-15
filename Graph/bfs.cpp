@@ -22,6 +22,7 @@ int bfs_count(vector<int> adjlist[], int v){
     bool visited[v];int maxx=0,count;
     for(int i=0;i<v;i++)
     visited[i]=false;
+    
     for(int i=0;i<v;i++){
         if(visited[i]==false)
             {
