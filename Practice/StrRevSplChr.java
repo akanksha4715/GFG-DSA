@@ -22,6 +22,7 @@ public class StrRevSplChr {
         Scanner sc=  new Scanner(System.in);
         String str;
         str=sc.nextLine();
-        int ans=findans(str);
+        sc.close();
+        findans(str);
     }
 }
