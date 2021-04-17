@@ -1,6 +1,4 @@
-import java.lang.*;
-import java.util.*;
-import java.io.*;
+
 class Solution {
     public static int lengthOfLongestSubstring(String s) {
         //ArrayList<Integer> arr =new ArrayList<Integer>();

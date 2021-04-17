@@ -1,6 +1,4 @@
-import java.io.*;
 import java.util.*;
-//import java.lang.*;
 public class validpara{
     public static int validate(String str){
         Stack<Character> st= new Stack<Character>();
@@ -34,6 +32,7 @@ public class validpara{
         Scanner sc = new Scanner(System.in);
         String str;
         str = sc.nextLine();
+        sc.close();
         int ans= validate(str);
         System.out.println(ans);
     }
