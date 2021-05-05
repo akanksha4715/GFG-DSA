@@ -13,6 +13,7 @@ int main(){
         vec.push_back(temp);
     }
     vec.erase(vec.begin());
+    cout<<"=============="<<endl;
     for(int i=0;i<n;i++){
         string word=vec[i];
         string sp=" ";
@@ -23,16 +24,12 @@ int main(){
             start=end+sp.size();
             end=word.find(sp,start);
         }
+        cout<<start<<end<<endl;
+     vint.push_back(stoi ( word.substr(start,end-start) ));
     }
-
-
-
-
     int m=vint.size();
-     for(int i=0;i<m;i++)
-     cout<<vint[i]<<" ";
     m=m/n;
-    //cout<<m<<endl;
+    cout<<"=============="<<endl;
     int k=0;
     for(int i=0;i<n;i++){
         vector<int> v1;
@@ -44,14 +41,14 @@ int main(){
         v.push_back(v1);
         
     }
-    // for (int i = 0; i < n; i++)
-    // {
-    //     for (int val : v[i])
-    //     {
-    //         cout<<val<<" ";
-    //     }
-    //     cout<<"\n";
-    // }
+    for (int i = 0; i < n; i++)
+    {
+        for (int val : v[i])
+        {
+            cout<<val<<" ";
+        }
+        cout<<"\n";
+    }
     
     return 0;
 }
