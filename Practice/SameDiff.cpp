@@ -7,7 +7,8 @@ int main(){
     cin>>t;
     while(t){
     t--;
-    int n,j,count=0;
+    int n,j;
+    long long count=0;
     cin>>n;
     vector<int> vec;
     map<int,int> sett;
