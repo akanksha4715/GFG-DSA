@@ -18,7 +18,6 @@ int main()
         k++;
         if(i+vec[k]<maxx)
         maxx=i+vec[k];
-        //cout<<i;
     }
     cout<<endl<<i;
     return 0;
