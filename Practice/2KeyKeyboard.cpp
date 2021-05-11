@@ -20,7 +20,7 @@ int minSteps(int n) {
         vector<int> arr(n+1,INT_MAX);
         arr[0]=arr[1]=0;
         int k;
-        for(int i=1;i<n;i++){
+        for(int i=1;i<n;i++){             //for each element we are checking what if we copy paste it
             for(int j=2;i*j<=n;j++){
                 k=i*j;
                 arr[k]=min(arr[k],arr[i]+j);
