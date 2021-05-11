@@ -16,20 +16,16 @@ int fn(int i,int j,int n){
         return 1+fn(1,1,n);
     }
 //Optimized 
-int Fn(int i,int j,int n){
-   string c=to_string(i)+" "+to_string(j);
-   if(n==1)
-        mp[c]=-1;
-    if(n==j)
-        mp[c]=0;
-    if(j>n)
-        mp[c]=1001;
-    if(mp.find(c)!=mp.end())
-       return mp[c];
-    mp[c]=min(1+fn(i,j+i,n),2+fn(j,j+j,n)); 
-    return mp[c];
-}
 int minSteps(int n) {
-        return 1+Fn(1,1,n);
+        vector<int> arr(n+1,INT_MAX);
+        arr[0]=arr[1]=0;
+        int k;
+        for(int i=1;i<n;i++){
+            for(int j=2;i*j<=n;j++){
+                k=i*j;
+                arr[k]=min(arr[k],arr[i]+j);
+            }
+        }
+        return arr[n];
     }
-    // weird thing is optimized version is actually not optimized. Strangely it is taking more time than brute force
+    
