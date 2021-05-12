@@ -1,19 +1,39 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        vector<int>ans ;
+        int low=0;
+        int high =nums.size()-1;
+        while(low<high){
+            int sum=nums[low]+nums[high];
+            if(sum==target){
+                ans.push_back(low);
+                ans.push_back(high);
+                break;
+            }
+            if(sum<target){
+                if(nums[low]<nums[high])
+                    low++;
+                else
+                    high--;
+            }
+            else{
+                if(nums[low]<nums[high])
+                    high--;
+                else
+                    low++;
+            }
+            
+        }
+        return ans;
+}
 int main(){
-    int n;
-    cin>>n;
-    string s;
-    vector<string> vec;
-    for(int i=0;i<=n;i++)
-    {
-        getline(cin,s);
-        vec.push_back(s);
-    }
-    vec.erase(vec.begin());
-    for(int i=0;i<n;i++)
-    cout<<vec[i]<<" ";
-    //cout<<endl<<vec[1];
+    vector<int> v1={2,5,8};
+    vector<int> v2={2,5,8};
+    cout<<(v1==v2);
     return 0;
 }
