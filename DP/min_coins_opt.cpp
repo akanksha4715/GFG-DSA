@@ -26,6 +26,10 @@ int main(){
     int arr[n];
     for(int i=0;i<n;i++)
     cin>>arr[i];
-    cout<<minCoin(arr,n,val);
+    int g=minCoin(arr,n,val);
+    if(g!=INT16_MAX)
+    cout<<g;
+    else
+    cout<<"-1";
     return 0;
 }

@@ -19,6 +19,7 @@ public:
     }
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
+        int max=INT16_MAX;
         if(root==NULL)
             return ans;
         queue<TreeNode*> q;
