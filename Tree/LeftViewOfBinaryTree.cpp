@@ -10,6 +10,8 @@ struct TreeNode{
     TreeNode(int x,TreeNode *left,TreeNode *right) : val(x),left(left),right(right){}
 };
 void printleft(TreeNode *root){
+    if(!root)
+    cout<<-1;
     queue<TreeNode *> q;
     q.push(root);
     while(!q.empty()){      
@@ -18,7 +20,7 @@ void printleft(TreeNode *root){
             TreeNode *rot=q.front();
             q.pop();
             if(i==0)
-            cout<<rot->val;
+            cout<<rot->val<<" ";
             if(rot->left)
             q.push(rot->left);
             if(rot->right)
