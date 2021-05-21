@@ -12,8 +12,13 @@ int fn(int target,int i,int n){
     return -1;
     else{
         for(int j=0;j<n;j++){
-            int ans=fn(target-coins[j],j,n);
-            cout<<ans<<" ";
+            int ans;
+            if(target-coins[j]==0)
+            ans=1;
+            else
+            ans=fn(target-coins[j],j,n);
+
+            cout<<ans<<"for target"<<target-coins[j]<<"at"<<j<<endl;
             if(ans!=-1)
             count+=ans;
         }
@@ -31,11 +36,16 @@ int main(){
     }
     coins=vec;
     for(int i=0;i<n;i++){
-        int ans=fn(target-coins[i],i,n);
+        int ans;
+        cout<<"at "<<i<<endl;
+        if(target-coins[i]==0)
+        ans=1;
+        else
+        ans=fn(target-coins[i],i,n);
         
         if(ans!=-1)
         count+=ans;
     }
-    //cout<<count;
+    cout<<endl<<count;
     return 0;
 }
