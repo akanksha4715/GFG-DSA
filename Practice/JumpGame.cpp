@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//check if reaching last index is feasible or not by jumping
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
@@ -21,5 +22,18 @@ public:
             }
         }
         return false;
+    }
+};
+class solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int n=nums.size();
+        int reach=0,i;
+        for( i=0;i<n && i<=reach;i++){
+             reach=max(i+nums[i],reach);
+           // cout<<reach<<" ";
+        }
+        cout<<i;
+        return i==n;
     }
 };
