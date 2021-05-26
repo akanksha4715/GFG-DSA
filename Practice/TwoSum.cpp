@@ -22,24 +22,26 @@ vector<int> twoSum(vector<int>& nums, int target) {
                 break;
             }
             if(sum<target){
-                if(pr[low].first<pr[high].first)
-                    low++;
-                else
-                    high--;
+                // if(pr[low].first<pr[high].first)
+                //     low++;
+                // else
+                //     high--;
+                low++;
             }
             else{
-                if(pr[low].first<pr[high].first)
-                    high--;
-                else
-                    low++;
+                // if(pr[low].first<pr[high].first)
+                //     high--;
+                // else
+                //     low++;
+                high--;
             }
             
         }
         return ans;
     }
 int main(){
-    vector<int> nums ={3,2,4};
-    int n=6;
+    vector<int> nums ={2,7,11,15};
+    int n=9;
     vector<int> v=twoSum(nums,n);
     for(int i=0;i<v.size();i++)
     cout<<v[i]<<" ";
