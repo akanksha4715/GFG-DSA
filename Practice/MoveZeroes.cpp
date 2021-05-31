@@ -10,3 +10,7 @@ public:
             swap(nums[ptr++],nums[i]);
     }
 };
+
+
+
+
