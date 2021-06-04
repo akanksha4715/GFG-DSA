@@ -29,3 +29,32 @@ public:
         return maxlen;
     }
 };
+//optimal
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int start=0,end=1,curlen=1,maxlen=1;
+        int n=nums.size();
+        if(n==0)
+            return 0;
+        while(end<n){
+            if(nums[end]!=nums[end-1]){
+            if(nums[end]-nums[end-1]==1){
+                end++;
+                curlen++;
+                maxlen=max(maxlen,curlen);
+            }
+            else{
+                start=end;
+                curlen=1;
+                end++;
+            }
+            }
+            else
+                end++;
+        }
+        return maxlen;
+        
+    }
+};
