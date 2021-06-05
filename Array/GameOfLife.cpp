@@ -11,36 +11,44 @@ public:int rows,cols;
         int sum=0;
         for(int k=0;k<8;k++){
         if(isSafe(x+row[k],y+col[k])){
-            if(board[x+row[k]][y+col[k]])
+            if((board[x+row[k]][y+col[k]])==1 || (board[x+row[k]][y+col[k]])==3)
                 sum++;
         }
         }
         return sum;
     }
+    
     void gameOfLife(vector<vector<int>>& board) {
         int n=board.size();
         int m=board[0].size(); 
         rows=n;
         cols=m;
-        vector<vector<int>> ans(n);
+        //vector<vector<int>> ans(n);
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 int num=count(board,i,j);
-                //cout<<num<<" ";
-                if(board[i][j]==0 && num==3)
-                    ans[i].push_back(1);
+                if((board[i][j]==0) && num==3)
+                    board[i][j]=2;
                 else if(board[i][j]==0 && num!=3)
-                    ans[i].push_back(0);
+                    board[i][j]=0;
                 else if(board[i][j]==1 && num<2)
-                    ans[i].push_back(0);
+                    board[i][j]=3;
                 else if(board[i][j]==1 && num>3)
-                    ans[i].push_back(0);
+                    board[i][j]=3;
                 else 
-                    ans[i].push_back(1);
+                    board[i][j]=1;
             }
-            //cout<<endl;
+            
         }
-        board=ans;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(board[i][j]==2)
+                board[i][j]=1;
+                else if(board[i][j]==3)
+                board[i][j]=0;
+            }
+        }
+        
         
     }
 };
