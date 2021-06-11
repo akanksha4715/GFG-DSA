@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-deque<int> prevsmall(vector<int> vec){
+class Solution {
+public:
+    deque<int> prevsmall(vector<int> vec){
     int n=vec.size();
     stack<int> st;
     deque<int> ans;
@@ -34,12 +36,15 @@ deque<int> nextsmall(vector<int> vec){
     }
     return ans;
 }
-int main(){
-    vector<int> vec={2,4};
-    deque<int> prev,next;
-    prev=prevsmall(vec);
-    next=nextsmall(vec);
-    for(auto x:next)
-    cout<<x<<" ";
-    return 0;
-}
+    int largestRectangleArea(vector<int>& vec) {
+        deque<int> prev,next;
+        prev=prevsmall(vec);
+        next=nextsmall(vec);
+        int n=vec.size();
+        int maxx=INT16_MIN;
+        for(int i=0;i<n;i++){
+            maxx=max(maxx, vec[i]*(next[i]-prev[i]-1));
+        }
+        return maxx;
+    }
+};
