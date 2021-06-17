@@ -74,3 +74,46 @@ for(int i=0;i<n1;i++){
 }
 return 0;
 }
+/* *******Without Extra Space ************ */
+class Solution {
+public:
+    bool isSafe(int i,int j,vector<vector<char>>& grid){
+        int n=grid.size();
+        int m=grid[0].size();
+        return i>=0 && j>=0 && i<n && j<m && grid[i][j]=='1';
+    }
+    void bfs(vector<vector<char>>& grid,int i,int j){
+        int row[]={0,-1,0,1};
+        int col[]={-1,0,1,0};
+        queue<pair<int,int>> q;
+        q.push(make_pair(i,j));
+        while(!q.empty()){
+            int u=q.front().first;
+            int v=q.front().second;
+            q.pop();
+            for(int i=0;i<4;i++){
+                int x=u+row[i];
+                int y=v+col[i];
+                if(isSafe(x,y,grid)){
+                    grid[x][y]='*';
+                    q.push(make_pair(x,y));
+                }
+            }
+        }
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int n=grid.size();
+        int m=grid[0].size();
+        int count=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j]=='1'){
+                    count++;
+                    grid[i][j]='*';
+                    bfs(grid,i,j);
+                }
+            }
+        }
+        return count;
+    }
+};
