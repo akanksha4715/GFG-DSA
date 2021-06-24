@@ -32,7 +32,7 @@ int main(){
     cin>>x;
     node *head=new node(x);
     //cout<<"u";
-    head->next=NULL; 
+    //head->next=NULL; 
     for(int i=1;i<n;i++){       
         cin>>x;
         head=insertin(head,x);
