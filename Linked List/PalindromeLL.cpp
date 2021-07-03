@@ -9,6 +9,16 @@ struct node{
         next=NULL;
     }
 };
+void print(node *head){
+    node *ptr = NULL;
+    ptr=head;
+    while(ptr->next!=NULL)
+    {
+       cout<<ptr->data<<" ";
+       ptr=ptr->next;
+    }
+    cout<<ptr->data<<" ";
+}
 node* reversal(node *head){
     node* prev=NULL;
     node* curr=head;
@@ -18,6 +28,7 @@ node* reversal(node *head){
         prev=curr;
         curr=nextt;
     }
+    print(prev);
     return prev;
 
 }
@@ -29,6 +40,7 @@ node *findmid(node *head){
         fast=fast->next->next;
     }
     //cout<<"Slow "<<slow->data;
+    
     return slow;
 }
 bool check(node *head){
@@ -57,16 +69,7 @@ node* insertin(node *head,int x){
      ptr->next=temp; 
      return head;
 }
-void print(node *head){
-    node *ptr = NULL;
-    ptr=head;
-    while(ptr->next!=NULL)
-    {
-       cout<<ptr->data<<" ";
-       ptr=ptr->next;
-    }
-    cout<<ptr->data<<" ";
-}
+
 int main(){
     int n,x;
     cin>>n;
@@ -78,6 +81,6 @@ int main(){
         head=insertin(head,x);
     }
     bool a=check(head);
-    cout<<endl<<a;
+    //cout<<endl<<a;
     return 0;
 }
